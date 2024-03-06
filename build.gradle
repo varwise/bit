@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id "com.diffplug.spotless" version "6.25.0"
 }
 
 group = "com.varwise"
@@ -17,6 +18,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+
+
 tasks.test {
     useJUnitPlatform()
 }
@@ -27,4 +30,10 @@ compileJava {
 
 application {
     mainClass = 'com.varwise.bit.Main'
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
 }
